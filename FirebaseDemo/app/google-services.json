@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "980900682548",
+    "project_id": "studentdirectory-1ac9a",
+    "storage_bucket": "studentdirectory-1ac9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980900682548:android:c6fa54f387ebc8aaf6a361",
+        "android_client_info": {
+          "package_name": "com.rodavid20.firebasedemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980900682548-4l8ntdvnps3ou5grg2ck11b0ouhq1oij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPZxI17ZFhdU6pqfNdQyC3zKjZVWlWh7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980900682548-4l8ntdvnps3ou5grg2ck11b0ouhq1oij.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
