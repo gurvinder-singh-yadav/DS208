@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MathApp</string>
+    <string name="tvNumber1">Number 1</string>
+    <string name="tvNumber2">Number 2</string>
+    <string name="calculate">Calculate</string>
+    <string-array name="operations">
+        <item>Add</item>
+        <item>Subtract</item>
+        <item>Multiply</item>
+        <item>Divide</item>
+    </string-array>
+</resources>
