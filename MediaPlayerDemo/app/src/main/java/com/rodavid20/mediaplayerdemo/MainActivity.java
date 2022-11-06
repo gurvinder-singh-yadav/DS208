@@ -22,14 +22,12 @@ public class MainActivity extends AppCompatActivity {
             intent.setDataAndType(uri, "audio/*");
             startActivity(intent);
         });
-
         Button btnStart = findViewById(R.id.btnStart);
         btnStart.setOnClickListener(view -> {
             //create does both setDataSource and Prepare
             mediaPlayer = MediaPlayer.create(this, R.raw.sample);
             mediaPlayer.start();
         });
-
         Button btnStop = findViewById(R.id.btnStop);
         btnStop.setOnClickListener(view -> {
             if(mediaPlayer != null) {
@@ -37,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     @Override
     protected void onStop() {
         super.onStop();
