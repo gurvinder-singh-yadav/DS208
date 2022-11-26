@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //CustomView view = new CustomView(this);
         //setContentView(view);
+
         CustomCircle customCircle = new CustomCircle(this);
         LinearLayout llContainer = findViewById(R.id.llContainer);
         llContainer.addView(customCircle);
