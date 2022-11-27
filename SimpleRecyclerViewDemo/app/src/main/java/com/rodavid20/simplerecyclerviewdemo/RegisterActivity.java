@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class RegisterActivity extends AppCompatActivity {
 
     @Override
@@ -32,7 +34,18 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void registerUser(String name, String phone, String email, String password) {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+                .addOnSuccessListener(result -> {
 
+                    Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent  = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                })
+                .addOnFailureListener(error -> {
+                    Toast.makeText(this, "Error " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                });
     }
 
     private boolean validateUserInput(String name, String phone, String email, String password) {
