@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "487376664216",
+    "project_id": "simplerecyclerviewdemo-15cc0",
+    "storage_bucket": "simplerecyclerviewdemo-15cc0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487376664216:android:e6bcc7131b08b62786c2ed",
+        "android_client_info": {
+          "package_name": "com.rodavid20.simplerecyclerviewdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487376664216-ikd33dptp507pa7i8mbo4j350kl8ll93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY2SSJT0Nuuifh_kWVRxWLQA-DSiNIcYw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "487376664216-ikd33dptp507pa7i8mbo4j350kl8ll93.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
