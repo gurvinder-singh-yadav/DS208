@@ -1,14 +1,26 @@
+package com.rodavid20.simplerecyclerviewdemo.datamodel;
+
 public class UserModel {
     private String name;
     private String phone;
     private String email;
+    private String uuid;
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
 
     public UserModel() {}
 
-    public UserModel(String name, String phone, String email) {
+    public UserModel(String name, String phone, String email, String uuid) {
         this.name = name;
         this.phone = phone;
         this.email = email;
+        this.uuid = uuid;
     }
     public String getName() {
         return name;

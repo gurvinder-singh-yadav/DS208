@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.rodavid20.simplerecyclerviewdemo.datamodel.UserModel;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -27,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
             String email = etEmail.getText().toString();
             EditText etPassword = findViewById(R.id.etPassword);
             String password = etPassword.getText().toString();
-            if(validateUserInput(name, phone, email, password)) {
+            if (validateUserInput(name, phone, email, password)) {
                 registerUser(name, phone, email, password);
             }
         });
@@ -37,11 +39,20 @@ public class RegisterActivity extends AppCompatActivity {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener(result -> {
-
-                    Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent  = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    UserModel user = new UserModel(name, phone, email, firebaseAuth.getCurrentUser().getUid());
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("users")
+                            .document(user.getUuid())
+                            .set(user)
+                            .addOnSuccessListener(ref -> {
+                                Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            })
+                            .addOnFailureListener(error -> {
+                                Toast.makeText(this, "Error " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                            });
                 })
                 .addOnFailureListener(error -> {
                     Toast.makeText(this, "Error " + error.getMessage(), Toast.LENGTH_SHORT).show();
@@ -50,13 +61,13 @@ public class RegisterActivity extends AppCompatActivity {
 
     private boolean validateUserInput(String name, String phone, String email, String password) {
         boolean success = false;
-        if(TextUtils.isEmpty(name)){
+        if (TextUtils.isEmpty(name)) {
             Toast.makeText(this, "Name cannot be empty", Toast.LENGTH_SHORT).show();
-        } else if(TextUtils.isEmpty(phone)){
+        } else if (TextUtils.isEmpty(phone)) {
             Toast.makeText(this, "Phone cannot be empty", Toast.LENGTH_SHORT).show();
-        } else if(TextUtils.isEmpty(email)){
+        } else if (TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Email cannot be empty", Toast.LENGTH_SHORT).show();
-        } else if(TextUtils.isEmpty(password)){
+        } else if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Password cannot be empty", Toast.LENGTH_SHORT).show();
         } else {
             success = true;
